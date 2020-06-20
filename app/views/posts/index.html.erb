@@ -27,3 +27,11 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+
+<br>
+
+<% if admin_signed_in? %>
+  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+<% elsif user_signed_in? %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% end %>
